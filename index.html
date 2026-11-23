@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngoăn - Trái Cây Gọt Sẵn | Tươi Mát Giòn Ngọt Mỗi Ngày</title>
+    <meta name="description" content="Ngoăn - Thương hiệu trái cây gọt sẵn tươi ngon thượng hạng. Gọt tươi liền tay theo đơn, 100% chuẩn VietGAP, tặng kèm muối tôm Tây Ninh & sốt mắm đường độc quyền. Giao siêu tốc 15-30 phút.">
+    <meta name="keywords" content="trái cây gọt sẵn, trái cây tươi, ngoăn, ly hoa quả, hoa quả dầm, muối tôm tây ninh, hoa quả văn phòng">
+    
+    <!-- Open Graph for Social Sharing -->
+    <meta property="og:title" content="Ngoăn - Trái Cây Gọt Sẵn Tươi Mát Mỗi Ngày">
+    <meta property="og:description" content="Trái cây gọt sẵn chuẩn sạch, gọt lạnh vô trùng, giao nhanh 15-30p tại TP.HCM. Tự phối ly theo sở thích!">
+    <meta property="og:image" content="assets/logo.jpg">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Background Canvas for Floating Fruit Parallax & Click Splashes -->
+    <canvas id="fruitCanvas"></canvas>
+
+    <!-- Top Announcement Marquee -->
+    <div class="top-bar" id="topAnnouncementBar">
+        <div class="marquee-content">
+            <div class="marquee-item"><span class="live-pulse-dot"></span> 🛵 <strong>BẾP ĐANG GỌT:</strong> Giao nhanh 15 - 30 phút tận bàn làm việc</div>
+            <div class="marquee-item">🍉 100% Trái cây tuyển chọn chuẩn VietGAP - Chỉ gọt sau khi khách lên đơn</div>
+            <div class="marquee-item">🎁 <strong>QUAY VÒNG MAY MẮN:</strong> Nhận ngay Voucher 10k - 20k & Freeship hôm nay</div>
+            <div class="marquee-item">🧂 Tặng kèm trọn bộ hũ Muối Tôm Tây Ninh & Muối Ớt Hồng Xí Muội thơm ngon bất bại</div>
+            <div class="marquee-item"><span class="live-pulse-dot"></span> 🛵 <strong>BẾP ĐANG GỌT:</strong> Giao nhanh 15 - 30 phút tận bàn làm việc</div>
+            <div class="marquee-item">🍉 100% Trái cây tuyển chọn chuẩn VietGAP - Chỉ gọt sau khi khách lên đơn</div>
+        </div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="site-header" id="siteHeader">
+        <div class="container">
+            <nav class="nav-wrap">
+                <!-- Brand Identity -->
+                <a href="#hero" class="brand-logo" id="headerBrandLogo">
+                    <img src="assets/logo.jpg" alt="Logo Trái Cây Gọt Sẵn Ngoăn" class="logo-img">
+                    <div class="brand-text">
+                        <span class="brand-name">Ngoăn</span>
+                        <span class="brand-slogan">Trái cây gọt sẵn</span>
+                    </div>
+                </a>
+
+                <!-- Nav Links -->
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#hero" class="nav-link">Trang Chủ</a></li>
+                    <li><a href="#menuSection" class="nav-link" style="color: var(--primary); font-weight: 800;">Menu Tâm Trạng 🎭</a></li>
+                    <li><a href="#builderSection" class="nav-link">Tự Phối Ly 🍉</a></li>
+                    <li><a href="#saltsSection" class="nav-link">Bộ Muối Sốt</a></li>
+                    <li><a href="#wheelSection" class="nav-link">Vòng Quay Quà 🎁</a></li>
+                    <li><a href="#promisesSection" class="nav-link">Cam Kết Sạch</a></li>
+                </ul>
+
+                <!-- Nav Actions -->
+                <div class="nav-actions">
+                    <!-- Audio Sound Toggle -->
+                    <button class="btn-sound" id="toggleSoundBtn" title="Bật / Tắt âm thanh hiệu ứng">
+                        <span class="sound-icon">🔊</span>
+                        <span class="sound-label">Âm thanh: Bật</span>
+                    </button>
+
+                    <!-- Cart Icon Button -->
+                    <button class="btn-nav-cart" id="navCartBtn" aria-label="Xem giỏ hàng">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-count-badge" id="cartBadgeCount" style="display: none;">0</span>
+                    </button>
+
+                    <!-- Fast CTA -->
+                    <a href="#menuSection" class="btn-cta-nav" id="navOrderCta">
+                        <span>Chọn Món</span>
+                        <span style="font-size: 1.1rem;">⚡</span>
+                    </a>
+
+                    <!-- Mobile Menu Hamburger -->
+                    <button class="hamburger" id="navHamburger" aria-label="Mở menu di động">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero-section" id="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <!-- Left: Hero Copywriting -->
+                    <div class="hero-content">
+                        <div class="hero-badge-pill">
+                            <span>✨</span>
+                            <span>Trái Cây Gọt Sẵn & Những Câu Chuyện Dở Khóc Dở Cười</span>
+                        </div>
+                        <h1 class="hero-title">
+                            Ăn Trái Cây <br>
+                            <span class="text-gradient">Không Chỉ Để No</span><br>
+                            Mà Còn Để <span class="highlight-brand">Có Chuyện Kể!</span>
+                        </h1>
+                        <p class="hero-lead">
+                            Chọn món theo tâm trạng, ăn theo cảm xúc cùng <strong>Ngoăn</strong>! Dù bạn đang nhớ người yêu cũ, lương vừa về đã bay hay crush seen không rep — Bếp Ngoăn luôn gọt tươi mát lạnh giao tận bàn trong 20 phút!
+                        </p>
+
+                        <div class="hero-btn-group">
+                            <a href="#menuSection" class="btn-primary-hero" id="heroExploreMenuBtn">
+                                <span>Khám Phá Menu Tâm Trạng</span>
+                                <span>🎭</span>
+                            </a>
+                            <a href="#builderSection" class="btn-secondary-hero" id="heroCustomCupBtn">
+                                <span>Tự Phối Ly / Hộp Riêng</span>
+                                <span>🥤</span>
+                            </a>
+                        </div>
+
+                        <!-- Trust Badges -->
+                        <div class="hero-trust-bar">
+                            <div class="trust-item">
+                                <div class="trust-icon">❄️</div>
+                                <span>Gọt tươi trong 15p</span>
+                            </div>
+                            <div class="trust-item">
+                                <div class="trust-icon">🌿</div>
+                                <span>100% VietGAP</span>
+                            </div>
+                            <div class="trust-item">
+                                <div class="trust-icon">🔄</div>
+                                <span>1 Đổi 1 nếu dập chua</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Hero 3D Interactive Showcase -->
+                    <div class="hero-visual-wrap">
+                        <div class="hero-glow-aura"></div>
+                        <div class="hero-main-card" data-tilt id="heroMainVisualCard">
+                            <img src="assets/hero_fruit_bowl.jpg" alt="Bát trái cây tươi ngon Ngoăn" class="hero-bowl-image">
+                            
+                            <!-- Floating interactive chips -->
+                            <div class="floating-chip chip-review">
+                                <span class="chip-icon">⭐</span>
+                                <div>
+                                    <div class="chip-title">4.9 / 5.0 Rating</div>
+                                    <div class="chip-subtitle">"Nơi trái cây gặp gỡ tâm trạng không tên"</div>
+                                </div>
+                            </div>
+
+                            <div class="floating-chip chip-rating">
+                                <span class="chip-icon">🍉</span>
+                                <div>
+                                    <div class="chip-title">Ướp Mát Lạnh 8°C</div>
+                                    <div class="chip-subtitle">Giữ trọn độ giòn & vitamin sống</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE DIY CUP BUILDER SECTION -->
+        <section class="builder-section" id="builderSection">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Trải Nghiệm Độc Quyền</span>
+                    <h2 class="section-title">Tự Phối Ly Ngoăn Theo Vị Bạn Thích 🥤</h2>
+                    <p class="section-desc">Tự do chọn lựa những loại quả yêu thích, chọn size ly phù hợp và hũ muối chấm chân ái. Ly trái cây tươi sẽ được gọt riêng cho chính bạn!</p>
+                </div>
+
+                <div class="builder-layout">
+                    <!-- Left: Interactive Animated Cup Visualizer -->
+                    <div class="cup-simulator-card" id="cupSimulatorCard">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 14px; color: var(--primary);">Ly Ngoăn Của Bạn</h3>
+                        
+                        <div class="cup-container-visual" id="cupContainerVisual">
+                            <div class="cup-straw"></div>
+                            <!-- Dynamic fruit layers will be injected here -->
+                            <div id="cupFruitLayers"></div>
+                        </div>
+
+                        <!-- Live Nutrition & Price Stats -->
+                        <div class="cup-live-stats">
+                            <div class="stat-row">
+                                <span id="builderFruitCountBadge">Đã chọn: 4/4 loại</span>
+                                <span id="builderTotalCalories" style="color: var(--primary); font-weight: 700;">~185 kcal</span>
+                            </div>
+                            <div class="stat-row total-row">
+                                <span>Tổng cộng:</span>
+                                <span id="builderTotalPrice">52.000đ</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-builder-add" id="builderAddToCartBtn">
+                            <span>Thêm Ly Ngoăn Này Vào Giỏ</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Right: Step-by-step Selection Controls -->
+                    <div class="builder-controls">
+                        <!-- Step 1: Cup Size -->
+                        <div class="step-card" id="stepCupSize">
+                            <div class="step-card-header">
+                                <h4 class="step-title"><span class="step-number">1</span> Chọn Size Ly Ngoăn</h4>
+                                <span class="step-badge">Chọn 1 size</span>
+                            </div>
+                            <div class="size-grid" id="builderSizeOptions">
+                                <!-- Rendered dynamically by cup-builder.js -->
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Fruit Selection -->
+                        <div class="step-card" id="stepFruits">
+                            <div class="step-card-header">
+                                <h4 class="step-title"><span class="step-number">2</span> Chọn Trái Cây Yêu Thích</h4>
+                                <span class="step-badge">Bấm để thêm hoặc bỏ</span>
+                            </div>
+                            <div class="fruits-grid" id="builderFruitOptions">
+                                <!-- Rendered dynamically by cup-builder.js -->
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Dipping Salt & Topping Selection -->
+                        <div class="step-card" id="stepSalts">
+                            <div class="step-card-header">
+                                <h4 class="step-title"><span class="step-number">3</span> Thêm Topping & Gia Vị (+5K)</h4>
+                                <span class="step-badge">Chọn topping yêu thích</span>
+                            </div>
+                            <div class="salts-list" id="builderSaltOptions">
+                                <!-- Rendered dynamically by cup-builder.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU & PRODUCTS SECTION -->
+        <section class="menu-section" id="menuSection">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag" style="background: #FEF3C7; color: #D97706;">Chọn Món Theo Cảm Xúc</span>
+                    <h2 class="section-title">Menu Trái Cây Ngoăn & Những Câu Chuyện Dở Khóc Dở Cười 🎭</h2>
+                    <p class="section-desc">Mỗi ly trái cây là một câu chuyện, một tâm trạng. Chọn đúng "hệ" của mình để được xoa dịu vị giác!</p>
+                </div>
+
+                <!-- Mood Selector Shortcuts Banner -->
+                <div class="mood-selector-container">
+                    <div class="mood-selector-title">
+                        <span>💡</span>
+                        <span>Hôm nay tâm trạng bạn đang thuộc "Hệ" nào? Bấm để xem ngay:</span>
+                    </div>
+                    <div class="mood-shortcuts-grid">
+                        <button class="mood-shortcut-btn" data-category="tinh-cam">💔 Hệ Tình Cảm</button>
+                        <button class="mood-shortcut-btn" data-category="cuoc-doi">💸 Hệ Cuộc Đời</button>
+                        <button class="mood-shortcut-btn" data-category="tu-huy">🙃 Hệ Tự Hủy</button>
+                        <button class="mood-shortcut-btn" data-category="doc-than">💅 Hệ Độc Thân</button>
+                        <button class="mood-shortcut-btn" data-category="hop-chu-nhat">📦 Hộp Chữ Nhật (2-3-4 Ngăn)</button>
+                        <button class="mood-shortcut-btn" data-category="khay-tiec">🎉 Khay Tiệc Hội Nghị</button>
+                    </div>
+                </div>
+
+                <!-- Filter & Search Controls -->
+                <div class="menu-filter-bar">
+                    <div class="category-pills" id="categoryTabs">
+                        <button class="cat-pill active" data-category="all">✨ Tất Cả Món</button>
+                        <button class="cat-pill" data-category="tinh-cam">💔 Hệ Tình Cảm</button>
+                        <button class="cat-pill" data-category="cuoc-doi">💸 Hệ Cuộc Đời</button>
+                        <button class="cat-pill" data-category="tu-huy">🙃 Hệ Tự Hủy</button>
+                        <button class="cat-pill" data-category="doc-than">💅 Hệ Độc Thân</button>
+                        <button class="cat-pill" data-category="hop-chu-nhat">📦 Hộp Chữ Nhật</button>
+                        <button class="cat-pill" data-category="khay-tiec">🎉 Khay Tiệc</button>
+                        <button class="cat-pill" data-category="toppings">🧂 Topping (+5K)</button>
+                    </div>
+
+                    <div class="search-box">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" id="menuSearchInput" placeholder="Tìm theo tâm trạng, tên món, xoài, ổi...">
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="menuGrid">
+                    <!-- Injected dynamically via app.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- DIPPING SALTS & SAUCES SHOWCASE -->
+        <section class="salts-showcase-section" id="saltsSection">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Bí Quyết Chấm Gây Nghiện</span>
+                    <h2 class="section-title">Bộ 3 Gia Vị Chấm Ngoăn Thần Thánh 🌶️</h2>
+                    <p class="section-desc">Trái cây ngon phải có muối đỉnh! Công thức độc quyền được cân chỉnh tỷ lệ chuẩn vị giữa độ cay, mặn, ngọt và chua thơm.</p>
+                </div>
+
+                <div class="salts-grid-showcase">
+                    <!-- Salt 1 -->
+                    <div class="salt-card-feature" data-tilt>
+                        <div class="salt-badge-spicy">🌶️🌶️🌶️ Độ cay nồng</div>
+                        <div class="salt-img-box">
+                            <img src="assets/dipping_salts.jpg" alt="Muối tôm Tây Ninh hảo hạng Ngoăn">
+                        </div>
+                        <h3 class="salt-feature-title">Muối Tôm Tây Ninh Thượng Hạng</h3>
+                        <p class="salt-feature-desc">Hạt muối to rang giòn rụm nổ tí tách trên đầu lưỡi, tôm thịt thơm nức mũi hòa cùng ớt đỏ cay xé. Chấm đến đâu xuýt xoa đến đấy.</p>
+                        <span class="salt-pairing-tag">Hợp nhất: Xoài giòn, ổi sẻ, mận, dưa hấu</span>
+                    </div>
+
+                    <!-- Salt 2 -->
+                    <div class="salt-card-feature" data-tilt>
+                        <div class="salt-badge-spicy">🌶️🌶️ Độ cay dịu</div>
+                        <div class="salt-img-box">
+                            <img src="assets/dipping_salts.jpg" alt="Muối ớt hồng xí muội Ngoăn">
+                        </div>
+                        <h3 class="salt-feature-title">Muối Ớt Hồng Xí Muội Thảo Mộc</h3>
+                        <p class="salt-feature-desc">Màu hồng phấn tự nhiên từ cốt ô mai xí muội thảo mộc, vị chua thanh ngọt hậu, quyện lẫn ớt hồng dịu nhẹ, ăn hoài không ngán.</p>
+                        <span class="salt-pairing-tag">Hợp nhất: Ổi nữ hoàng, cóc non, thanh long</span>
+                    </div>
+
+                    <!-- Salt 3 -->
+                    <div class="salt-card-feature" data-tilt>
+                        <div class="salt-badge-spicy">🌶️🌶️🌶️🌶️ Vị cay bùng nổ</div>
+                        <div class="salt-img-box">
+                            <img src="assets/dipping_salts.jpg" alt="Sốt mắm đường Thái kẹo cay Ngoăn">
+                        </div>
+                        <h3 class="salt-feature-title">Sốt Mắm Đường Thái Kẹo Cay</h3>
+                        <p class="salt-feature-desc">Nấu cô đặc bằng đường thốt nốt nguyên chất và nước mắm nhĩ thơm lừng, sánh keo như mật, phủ đẫm ớt tươi đỏ rực. Đỉnh chóp ăn vặt!</p>
+                        <span class="salt-pairing-tag">Hợp nhất: Xoài keo sống, cóc bao tử, táo xanh</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LUCKY WHEEL SECTION -->
+        <section class="wheel-section" id="wheelSection">
+            <div class="container">
+                <div class="wheel-layout">
+                    <!-- Left: Spin Canvas -->
+                    <div class="wheel-canvas-container">
+                        <div class="wheel-pointer"></div>
+                        <canvas id="wheelCanvas" width="360" height="360"></canvas>
+                    </div>
+
+                    <!-- Right: Spin Instructions & Action -->
+                    <div class="wheel-info">
+                        <span class="section-tag" style="background: rgba(239, 68, 68, 0.15); color: #EF4444;">Vui Cùng Bếp Ngoăn</span>
+                        <h2 class="section-title">Vòng Quay May Mắn Trái Cây Ngoăn 🎡</h2>
+                        <p class="section-desc">Mỗi khách hàng ghé thăm Ngoăn đều có 1 lượt quay miễn phí để rinh về những phần quà hấp dẫn cho đơn hàng hôm nay!</p>
+
+                        <ul class="wheel-perks-list">
+                            <li class="perk-item">
+                                <span class="perk-icon">🎁</span>
+                                <span>Tặng hũ Muối Xí Muội hoặc Giảm ngay 10.000đ</span>
+                            </li>
+                            <li class="perk-item">
+                                <span class="perk-icon">🍉</span>
+                                <span>Tặng thêm 100g Dưa hấu Long An ngọt mọng</span>
+                            </li>
+                            <li class="perk-item">
+                                <span class="perk-icon">🛵</span>
+                                <span>Mã Freeship siêu tốc tận cửa nhà</span>
+                            </li>
+                        </ul>
+
+                        <button class="btn-spin-wheel" id="spinWheelBtn">
+                            <span>Quay Ngay Nhận Quà!</span>
+                            <span style="font-size: 1.3rem;">🎉</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 GOLDEN PROMISES / FRESH PROCESS -->
+        <section class="promises-section" id="promisesSection">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">An Tâm Sức Khỏe</span>
+                    <h2 class="section-title">4 Cam Kết Vàng Từ Bếp Ngoăn 🌿</h2>
+                    <p class="section-desc">Tiêu chuẩn vệ sinh an toàn thực phẩm khắt khe để từng miếng trái cây khi đến tay bạn luôn tươi sạch, giòn ngọt trọn vẹn.</p>
+                </div>
+
+                <div class="promises-grid">
+                    <div class="promise-card" data-tilt>
+                        <div class="promise-icon-wrap">🍈</div>
+                        <h3 class="promise-title">Chuẩn VietGAP 100%</h3>
+                        <p class="promise-desc">Thu hoạch trực tiếp từ các nhà vườn đạt chuẩn. Không dùng chất bảo quản, không ngâm hóa chất giữ tươi.</p>
+                    </div>
+
+                    <div class="promise-card" data-tilt>
+                        <div class="promise-icon-wrap">🌊</div>
+                        <h3 class="promise-title">Rửa Sóng Siêu Âm</h3>
+                        <p class="promise-desc">Quy trình rửa 3 bước bằng nước ion kiềm và máy sục sóng siêu âm đánh bay 99.9% bụi bẩn và dư lượng bám ngoài vỏ.</p>
+                    </div>
+
+                    <div class="promise-card" data-tilt>
+                        <div class="promise-icon-wrap">❄️</div>
+                        <h3 class="promise-title">Gọt Lạnh Vô Trùng</h3>
+                        <p class="promise-desc">Gọt trong phòng lạnh 18°C vô trùng. Chỉ bắt đầu gọt sau khi khách lên đơn để quả không bị thâm, không mất nước.</p>
+                    </div>
+
+                    <div class="promise-card" data-tilt>
+                        <div class="promise-icon-wrap">🛡️</div>
+                        <h3 class="promise-title">Bảo Hành 1 Đổi 1</h3>
+                        <p class="promise-desc">Nếu miếng quả bị sượng, chua gắt hoặc dập úng trong lúc vận chuyển, Ngoăn đổi mới ngay lập tức không thu phí.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CUSTOMER REVIEWS -->
+        <section class="reviews-section" id="reviewsSection">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Lời Khen Từ Khách Yêu</span>
+                    <h2 class="section-title">Hơn 15,000+ Khách Hàng Tin Yêu</h2>
+                    <p class="section-desc">Cảm ơn bạn đã chọn ăn trái cây tươi mỗi ngày cùng Ngoăn!</p>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Trưa nào phòng mình ở Bitexco cũng gọi Ngoăn. Trái cây tươi giòn lạnh ngắt, ổi gọt bỏ sạch ruột, dưa hấu ngọt lịm. Đặc biệt muối xí muội và sốt mắm đường ngon đỉnh chóp luôn!"</p>
+                        <div class="review-user">
+                            <div class="user-avatar">NL</div>
+                            <div>
+                                <div class="user-name">Ngọc Linh</div>
+                                <div class="user-badge">Chuyên viên Nhân sự (Q.1)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Tính năng tự phối ly trên web này xịn xò dã man, vừa bấm chọn là thấy các tầng quả hiện lên. Giao hàng 25 phút đã tới nơi, đóng hộp trong suốt nhìn sạch sẽ cực kỳ."</p>
+                        <div class="review-user">
+                            <div class="user-avatar">HT</div>
+                            <div>
+                                <div class="user-name">Hoàng Tuấn</div>
+                                <div class="user-badge">Kỹ sư Phần mềm (Q.7)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                        <p class="review-text">"Công ty mình vừa đặt khay tiệc 8 món cho buổi họp ban giám đốc. Ai nấy đều khen trái cây bày đẹp như khách sạn 5 sao, bưởi tép hồng mọng nước không hề đắng. Chắc chắn sẽ ủng hộ dài dài!"</p>
+                        <div class="review-user">
+                            <div class="user-avatar">TH</div>
+                            <div>
+                                <div class="user-name">Thu Hằng</div>
+                                <div class="user-badge">Trưởng phòng Marketing</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: About Brand -->
+                <div class="footer-col">
+                    <h3 class="footer-brand-title">Ngoăn - Trái Cây Gọt Sẵn</h3>
+                    <p class="footer-about">
+                        Thương hiệu trái cây gọt sẵn tươi ngon tiên phong tại Việt Nam. Mang lại trải nghiệm thưởng thức hoa quả chuẩn sạch, tiện lợi, tươi mát và bổ dưỡng nhất cho mọi gia đình và văn phòng.
+                    </p>
+                    <div class="footer-contact-item">
+                        <span>📞</span>
+                        <strong>Hotline đặt tiệc / sỉ: 0909.646.26 (0909.NGOAN)</strong>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>📍</span>
+                        <span>Chi nhánh 1: 88 Nguyễn Thị Minh Khai, Phường 6, Quận 3, TP.HCM</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>⏰</span>
+                        <span>Giờ mở cửa gọt tươi: 07:30 - 22:30 hàng ngày</span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Thực Đơn</h4>
+                    <ul class="footer-links">
+                        <li><a href="#menuSection">Ly Ngoăn Nhiệt Đới</a></li>
+                        <li><a href="#menuSection">Hộp Xoài Cát Hòa Lộc</a></li>
+                        <li><a href="#menuSection">Bưởi Da Xanh Tách Tép</a></li>
+                        <li><a href="#menuSection">Khay Tiệc Hội Nghị</a></li>
+                        <li><a href="#builderSection">Tự Phối Ly Theo Ý</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Chính Sách</h4>
+                    <ul class="footer-links">
+                        <li><a href="#promisesSection">Chính sách 1 đổi 1</a></li>
+                        <li><a href="#topAnnouncementBar">Giao hàng hỏa tốc</a></li>
+                        <li><a href="#saltsSection">Gia vị chấm an toàn</a></li>
+                        <li><a href="#wheelSection">Ưu đãi thành viên</a></li>
+                        <li><a href="#">Hợp tác cung cấp văn phòng</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter / Social -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Ăn Ngoăn Sống Khỏe</h4>
+                    <p style="font-size: 0.85rem; color: #94A3B8; margin-bottom: 14px;">
+                        Theo dõi Ngoăn trên các kênh mạng xã hội để cập nhật mùa trái ngon và các voucher giảm giá mỗi tuần!
+                    </p>
+                    <div style="display: flex; gap: 10px;">
+                        <a href="#" style="background: rgba(255,255,255,0.1); padding: 8px 14px; border-radius: 8px; font-size: 0.85rem;">Facebook</a>
+                        <a href="#" style="background: rgba(255,255,255,0.1); padding: 8px 14px; border-radius: 8px; font-size: 0.85rem;">TikTok</a>
+                        <a href="#" style="background: rgba(255,255,255,0.1); padding: 8px 14px; border-radius: 8px; font-size: 0.85rem;">Instagram</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Ngoăn - Trái Cây Gọt Sẵn. All rights reserved. Gọt tươi mỗi giờ - Ăn ngoan mỗi ngày.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SLIDE-IN CART DRAWER -->
+    <div class="cart-overlay" id="cartDrawerOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3 class="cart-header-title">
+                <span>🛒 Giỏ Hàng Ngoăn</span>
+            </h3>
+            <button class="btn-close-drawer" id="closeCartDrawer" aria-label="Đóng giỏ hàng">✕</button>
+        </div>
+
+        <!-- Free shipping bar -->
+        <div class="freeship-meter-wrap">
+            <div class="meter-text" id="freeShipProgressText">Thêm <strong>35.000đ</strong> để được <strong>FREESHIP</strong> 🚀</div>
+            <div class="meter-bar-track">
+                <div class="meter-bar-fill" id="freeShipProgressBar"></div>
+            </div>
+        </div>
+
+        <!-- Cart Items List -->
+        <div class="cart-items-wrap" id="cartItemsList">
+            <!-- Injected dynamically via app.js -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="cart-empty" id="cartEmptyState" style="display: none;">
+            <span style="font-size: 3.5rem;">🍉</span>
+            <h4>Giỏ hàng của bạn đang trống</h4>
+            <p style="font-size: 0.88rem; max-width: 250px;">Hãy chọn những món trái cây gọt sẵn tươi mát để nạp vitamin cho cơ thể nhé!</p>
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="cart-footer" id="cartDrawerFooter">
+            <!-- Voucher box -->
+            <div class="voucher-input-box">
+                <input type="text" id="voucherInput" placeholder="Nhập mã ưu đãi (VD: NGOAN10K)">
+                <button type="button" id="applyVoucherInputBtn">Áp Dụng</button>
+            </div>
+
+            <!-- Price Breakdown -->
+            <div class="price-summary-rows">
+                <div class="summary-row">
+                    <span>Tạm tính:</span>
+                    <strong id="cartSubtotalPrice">0đ</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Phí giao hàng:</span>
+                    <span id="cartShippingFee">0đ</span>
+                </div>
+                <div class="summary-row" id="cartDiscountRow" style="display: none; color: #EF4444;">
+                    <span>Giảm giá:</span>
+                    <strong id="cartDiscountPrice">-0đ</strong>
+                </div>
+                <div class="summary-row total-bold">
+                    <span>Tổng thanh toán:</span>
+                    <strong id="cartTotalPrice">0đ</strong>
+                </div>
+            </div>
+
+            <button class="btn-checkout" id="checkoutSubmitBtn">
+                <span>Tiến Hành Đặt Hàng</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal-content">
+            <button class="btn-close-modal" id="closeCheckoutModal" aria-label="Đóng form">✕</button>
+            <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 6px; color: var(--primary);">Xác Nhận Đơn Hàng Gọt Tươi</h3>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 20px;">Bếp Ngoăn sẽ chuẩn bị ngay sau khi nhận thông tin của bạn.</p>
+
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="orderName">Họ và Tên của bạn *</label>
+                    <input type="text" id="orderName" required placeholder="Ví dụ: Nguyễn Mai Lan">
+                </div>
+
+                <div class="form-group">
+                    <label for="orderPhone">Số điện thoại nhận hàng *</label>
+                    <input type="tel" id="orderPhone" required placeholder="Ví dụ: 0912 345 678">
+                </div>
+
+                <div class="form-group">
+                    <label for="orderAddress">Địa chỉ giao hàng (Tòa nhà / Số phòng / Đường) *</label>
+                    <input type="text" id="orderAddress" required placeholder="Ví dụ: Tầng 8 Tòa nhà Ree Tower, 9 Đoàn Văn Bơ, Q.4">
+                </div>
+
+                <div class="form-group">
+                    <label for="orderNote">Ghi chú cho bếp Ngoăn (tùy chọn)</label>
+                    <textarea id="orderNote" rows="2" placeholder="Ví dụ: Gọt miếng vuông nhỏ, cho thêm 2 nĩa gỗ, tách riêng muối tôm..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Phương thức thanh toán</label>
+                    <div class="payment-options">
+                        <label class="payment-label">
+                            <input type="radio" name="paymentMethod" value="cod" checked>
+                            <span>💵 Tiền mặt khi nhận (COD)</span>
+                        </label>
+                        <label class="payment-label">
+                            <input type="radio" name="paymentMethod" value="qr">
+                            <span>📲 Chuyển khoản QR Siêu Tốc</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Order mini summary -->
+                <div class="order-detail-card">
+                    <div id="checkoutItemsSummary"></div>
+                    <div style="display: flex; justify-content: space-between; border-top: 1px dashed var(--border-subtle); padding-top: 8px; font-weight: 800; font-size: 1.05rem; color: var(--primary);">
+                        <span>Tổng thanh toán:</span>
+                        <span id="checkoutFinalTotal">0đ</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-checkout" style="margin-top: 15px;">
+                    <span>Hoàn Tất Đặt Hàng Ngay</span>
+                    <span>🛵</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ORDER SUCCESS MODAL -->
+    <div class="modal-overlay" id="orderSuccessModal">
+        <div class="modal-content" style="text-align: center;">
+            <div class="success-icon-wrap">🎉</div>
+            <h3 style="font-size: 1.6rem; color: var(--primary); margin-bottom: 8px;">Đặt Hàng Ngoăn Thành Công!</h3>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 18px;">
+                Cảm ơn bạn đã tin tưởng lựa chọn <strong>Ngoăn</strong>! Bếp gọt lạnh đang tiến hành gọt tươi hoa quả và đóng túi giữ nhiệt gửi tới bạn ngay.
+            </p>
+
+            <div class="order-detail-card" style="text-align: left;">
+                <div><strong>Mã đơn hàng:</strong> <span id="successOrderCode" style="color: var(--primary); font-weight: 800;">NGOAN-889921</span></div>
+                <div><strong>Người nhận:</strong> <span id="successCustomerName"></span> (<span id="successPhone"></span>)</div>
+                <div><strong>Địa chỉ:</strong> <span id="successAddress"></span></div>
+                <div><strong>Thanh toán:</strong> <span id="successPayment"></span></div>
+                <div><strong>Thời gian giao dự kiến:</strong> 15 - 25 phút tới</div>
+            </div>
+
+            <button class="btn-primary-hero" id="closeSuccessModal" style="width: 100%; justify-content: center;">
+                <span>Tiếp Tục Thưởng Thức Trái Cây Ngoăn</span>
+                <span>🍉</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- LUCKY WHEEL PRIZE RESULT MODAL -->
+    <div class="modal-overlay" id="wheelResultModal">
+        <div class="modal-content" style="text-align: center;">
+            <span style="font-size: 3.5rem;">🎉🍉✨</span>
+            <h3 style="font-size: 1.5rem; color: #EF4444; margin-bottom: 8px;">Chúc Mừng Bạn Đã Trúng Quà!</h3>
+            <div id="wheelResultText" style="font-size: 1.4rem; font-weight: 900; color: var(--primary); margin-bottom: 10px;">Tặng Muối Xí Muội Miễn Phí</div>
+            <p id="wheelResultDesc" style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 24px;">Phần quà tuyệt vời từ bếp Ngoăn dành riêng cho bạn!</p>
+            <button class="btn-primary-hero" id="wheelApplyVoucherBtn" style="width: 100%; justify-content: center;">
+                <span>Áp Dụng Quà Tặng Vào Đơn Ngay</span>
+                <span>🎁</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- FLOATING CART BUTTON -->
+    <button class="floating-cart-badge" id="floatingCartBtn" aria-label="Xem giỏ hàng">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+    </button>
+
+    <!-- LIVE SOCIAL PROOF PURCHASE TOAST -->
+    <div class="live-toast" id="liveOrderToast">
+        <span class="toast-img">🍉</span>
+        <div>
+            <div class="toast-user">Chị Mai Lan (Quận 1)</div>
+            <div class="toast-item">vừa đặt 2 Ly Ngoăn Nhiệt Đới Siêu Mọng</div>
+            <div class="toast-time">cách đây 2 phút</div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/fruit-effects.js"></script>
+    <script src="js/cup-builder.js"></script>
+    <script src="js/wheel.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
