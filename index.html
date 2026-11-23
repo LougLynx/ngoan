@@ -719,13 +719,6 @@
         </svg>
     </button>
 
-    <!-- FLOATING LIVE CHAT GREETING PILL -->
-    <div class="chat-prompt-pill" id="chatPromptPill" onclick="openCareSoftDirect()" title="Bấm để nhắn tin trực tiếp với nhân viên tư vấn">
-        <span class="online-dot"></span>
-        <span>Nhắn tin tư vấn trực tiếp 🍉</span>
-        <span class="pill-close" onclick="event.stopPropagation(); document.getElementById('chatPromptPill').style.display='none';" title="Đóng">&times;</span>
-    </div>
-
     <!-- LIVE SOCIAL PROOF PURCHASE TOAST -->
     <div class="live-toast" id="liveOrderToast">
         <span class="toast-img">🍉</span>
@@ -741,30 +734,7 @@
     <script src="js/cup-builder.js"></script>
     <script src="js/wheel.js"></script>
     <script src="js/app.js"></script>
-
-    <!-- Start of caresoft live-chat widget -->
-    <script type="text/javascript">
-        !function(e,t,n,s,a,c,i){e.CSLiveChatWidget=a,e[a]=e[a]||function(){(e[a].q=e[a].q||[]).push(arguments)},e[a].l=1*new Date,c=t.createElement(n),i=t.getElementsByTagName(n)[0],c.async=1,c.src=s,i.parentNode.insertBefore(c,i)}(window,document,"script","https://webchat.caresoft.vn/widget/widget.min.js?v=1.0","cslw");
-        cslw("create", {
-            "domain": "thammy.cs",
-            "domainId": 9940,
-            "align": "right"
-        });
-
-        function openCareSoftDirect() {
-            try {
-                if (window.cslw) {
-                    window.cslw("open-widget");
-                    window.cslw("openChatBox");
-                }
-            } catch(e) {}
-            var chatDiv = document.getElementById("cs-live-chat");
-            if (chatDiv) {
-                var iframe = document.getElementById("cs_chat_iframe");
-                if (iframe) iframe.focus();
-            }
-        }
-    </script>
-    <!-- End of caresoft live-chat widget -->
+    <!-- CareSoft Real-time Native Direct Live Chat -->
+    <script src="js/caresoft-chat.js"></script>
 </body>
 </html>
