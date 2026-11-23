@@ -720,109 +720,10 @@
     </button>
 
     <!-- FLOATING LIVE CHAT GREETING PILL -->
-    <div class="chat-prompt-pill" id="chatPromptPill" onclick="toggleNgoanChat()" title="Bấm để chat với nhân viên tư vấn Ngoăn">
+    <div class="chat-prompt-pill" id="chatPromptPill" onclick="openCareSoftDirect()" title="Bấm để nhắn tin trực tiếp với nhân viên tư vấn">
         <span class="online-dot"></span>
-        <span>Tư vấn trái cây tươi & tiệc 🍉</span>
+        <span>Nhắn tin tư vấn trực tiếp 🍉</span>
         <span class="pill-close" onclick="event.stopPropagation(); document.getElementById('chatPromptPill').style.display='none';" title="Đóng">&times;</span>
-    </div>
-
-    <!-- NGOAN CUSTOM CHAT LAUNCHER BUTTON -->
-    <div class="ngoan-chat-launcher" id="ngoanChatLauncher" onclick="toggleNgoanChat()" title="Trò chuyện với nhân viên tư vấn Ngoăn">
-        <svg viewBox="0 0 24 24">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
-        </svg>
-        <span class="launcher-badge"></span>
-    </div>
-
-    <!-- NGOAN CUSTOM BEAUTIFUL CHAT WINDOW -->
-    <div class="ngoan-chat-window" id="ngoanChatWindow">
-        <!-- Header -->
-        <div class="ngoan-chat-header">
-            <div class="chat-header-profile">
-                <img src="assets/logo.jpg" alt="Logo Ngoăn" class="chat-header-avatar">
-                <div>
-                    <h4 class="chat-header-title">Ngoăn • Trực Tuyến</h4>
-                    <div class="chat-header-status">
-                        <span class="status-dot-live"></span>
-                        <span>Sẵn sàng hỗ trợ • Phản hồi ngay</span>
-                    </div>
-                </div>
-            </div>
-            <button class="chat-close-btn" onclick="toggleNgoanChat()" title="Đóng">&times;</button>
-        </div>
-
-        <!-- Body -->
-        <div class="ngoan-chat-body" id="ngoanChatBody">
-            <!-- Initial Form View -->
-            <div id="ngoanChatFormView" style="display: flex; flex-direction: column; gap: 14px;">
-                <div class="chat-welcome-card">
-                    <p>👋 Chào bạn! Rất vui được đón tiếp bạn tại <strong>Ngoăn</strong>. Bạn muốn thưởng thức trái cây hôm nay hay cần tư vấn đặt tiệc / hộp quà?</p>
-                </div>
-
-                <div class="chat-quick-chips">
-                    <span class="quick-chip" onclick="selectChatChip(this, 'Tư vấn ly trái cây gọt tươi hôm nay')">🍉 Menu gọt tươi</span>
-                    <span class="quick-chip" onclick="selectChatChip(this, 'Tư vấn hộp quà trái cây biếu tặng')">🎁 Hộp quà biếu</span>
-                    <span class="quick-chip" onclick="selectChatChip(this, 'Báo giá tiệc teabreak văn phòng')">🏢 Tiệc Teabreak</span>
-                    <span class="quick-chip" onclick="selectChatChip(this, 'Đặt giao gấp hỏa tốc 1 giờ')">⚡ Giao gấp 1h</span>
-                </div>
-
-                <form class="ngoan-chat-form" id="ngoanChatForm" onsubmit="handleNgoanChatSubmit(event)">
-                    <div class="chat-input-group">
-                        <label class="chat-input-label" for="chatName">Họ & Tên của bạn *</label>
-                        <input type="text" id="chatName" class="chat-input" placeholder="Ví dụ: Anh Minh, Chị Lan..." required>
-                    </div>
-
-                    <div class="chat-input-group">
-                        <label class="chat-input-label" for="chatPhone">Số điện thoại / Zalo *</label>
-                        <input type="tel" id="chatPhone" class="chat-input" placeholder="090x xxx xxx" pattern="[0-9]{9,11}" required>
-                    </div>
-
-                    <div class="chat-input-group">
-                        <label class="chat-input-label" for="chatMsg">Nội dung cần tư vấn</label>
-                        <textarea id="chatMsg" class="chat-input chat-textarea" placeholder="Bạn muốn tư vấn món nào, số lượng bao nhiêu..."></textarea>
-                    </div>
-
-                    <button type="submit" class="chat-submit-btn">
-                        <span>BẮT ĐẦU TRÒ CHUYỆN NGAY</span>
-                        <span>🍉</span>
-                    </button>
-                </form>
-
-                <div class="chat-channels-divider">
-                    <span>hoặc liên hệ nhanh qua</span>
-                </div>
-
-                <div class="chat-fast-actions">
-                    <a href="https://zalo.me/090964626" target="_blank" rel="noopener noreferrer" class="fast-action-btn fast-zalo">
-                        <span>💬 Chat Zalo</span>
-                    </a>
-                    <a href="tel:090964626" class="fast-action-btn fast-hotline">
-                        <span>📞 0909.646.26</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Active / Success Chat Feed -->
-            <div id="ngoanChatSuccessView" class="chat-active-feed">
-                <div class="chat-msg-bubble chat-msg-user" id="userMsgDisplay"></div>
-                <div class="chat-msg-bubble chat-msg-agent">
-                    <div>✨ <strong>Bếp Ngoăn:</strong> Dạ chào bạn! Ngoăn đã nhận thông tin yêu cầu. Nhân viên tư vấn đang kết nối và sẽ gọi/nhắn Zalo hỗ trợ bạn ngay trong 2 phút!</div>
-                    <div class="chat-msg-time">Vừa xong</div>
-                </div>
-
-                <div style="background: #FFFFFF; border-radius: 16px; padding: 14px; border: 1px solid #E2E8F0; text-align: center; margin-top: 6px;">
-                    <p style="margin: 0 0 10px; font-size: 0.85rem; color: #64748B;">Cần tư vấn chốt đơn hoặc giao gấp ngay?</p>
-                    <div style="display: flex; gap: 8px; justify-content: center;">
-                        <a href="https://zalo.me/090964626" target="_blank" class="fast-action-btn fast-zalo" style="flex: 1;">
-                            <span>Nhắn qua Zalo</span>
-                        </a>
-                        <a href="tel:090964626" class="fast-action-btn fast-hotline" style="flex: 1;">
-                            <span>Gọi 0909.646.26</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- LIVE SOCIAL PROOF PURCHASE TOAST -->
@@ -841,86 +742,27 @@
     <script src="js/wheel.js"></script>
     <script src="js/app.js"></script>
 
-    <!-- Start of caresoft live-chat widget & Custom Controller -->
+    <!-- Start of caresoft live-chat widget -->
     <script type="text/javascript">
         !function(e,t,n,s,a,c,i){e.CSLiveChatWidget=a,e[a]=e[a]||function(){(e[a].q=e[a].q||[]).push(arguments)},e[a].l=1*new Date,c=t.createElement(n),i=t.getElementsByTagName(n)[0],c.async=1,c.src=s,i.parentNode.insertBefore(c,i)}(window,document,"script","https://webchat.caresoft.vn/widget/widget.min.js?v=1.0","cslw");
         cslw("create", {
             "domain": "thammy.cs",
             "domainId": 9940,
-            "align": "right",
-            "hide": 1
+            "align": "right"
         });
 
-        function toggleNgoanChat() {
-            var chatWin = document.getElementById("ngoanChatWindow");
-            var pill = document.getElementById("chatPromptPill");
-            if (chatWin) {
-                var isActive = chatWin.classList.toggle("active");
-                if (isActive) {
-                    if (pill) pill.style.display = "none";
-                    setTimeout(function() {
-                        var nameInput = document.getElementById("chatName");
-                        if (nameInput) nameInput.focus();
-                    }, 250);
-                }
-            }
-        }
-
-        function selectChatChip(el, text) {
-            document.querySelectorAll(".quick-chip").forEach(function(c) { c.classList.remove("active"); });
-            el.classList.add("active");
-            var msgArea = document.getElementById("chatMsg");
-            if (msgArea) {
-                msgArea.value = text;
-                msgArea.focus();
-            }
-        }
-
-        function handleNgoanChatSubmit(e) {
-            e.preventDefault();
-            var name = document.getElementById("chatName").value.trim();
-            var phone = document.getElementById("chatPhone").value.trim();
-            var msg = document.getElementById("chatMsg").value.trim() || "Tư vấn chọn trái cây tươi Ngoăn";
-
-            if (!name || !phone) return;
-
-            // Display in active chat feed
-            var userMsgDisplay = document.getElementById("userMsgDisplay");
-            if (userMsgDisplay) {
-                var now = new Date();
-                var timeStr = now.getHours().toString().padStart(2, '0') + ':' + now.getMinutes().toString().padStart(2, '0');
-                userMsgDisplay.innerHTML = '<div><strong>' + name + ' (' + phone + '):</strong></div><div style="margin-top: 4px;">' + msg + '</div><div class="chat-msg-time">' + timeStr + '</div>';
-            }
-
-            document.getElementById("ngoanChatFormView").style.display = "none";
-            var successView = document.getElementById("ngoanChatSuccessView");
-            if (successView) {
-                successView.style.display = "flex";
-            }
-
-            // Sync with Caresoft background API
+        function openCareSoftDirect() {
             try {
                 if (window.cslw) {
-                    window.cslw("create", {
-                        domain: "thammy.cs",
-                        domainId: 9940,
-                        username: name,
-                        phone: phone,
-                        email: phone + "@ngoan.vn",
-                        hide: 1
-                    });
-                    window.cslw("compose-message", { message: msg });
+                    window.cslw("open-widget");
+                    window.cslw("openChatBox");
                 }
-            } catch(err) {
-                console.log("Caresoft note:", err);
-            }
-
-            // Save lead to localStorage
-            try {
-                var leads = JSON.parse(localStorage.getItem("ngoan_leads") || "[]");
-                leads.push({ name: name, phone: phone, msg: msg, timestamp: new Date().toISOString() });
-                localStorage.setItem("ngoan_leads", JSON.stringify(leads));
             } catch(e) {}
+            var chatDiv = document.getElementById("cs-live-chat");
+            if (chatDiv) {
+                var iframe = document.getElementById("cs_chat_iframe");
+                if (iframe) iframe.focus();
+            }
         }
     </script>
     <!-- End of caresoft live-chat widget -->
